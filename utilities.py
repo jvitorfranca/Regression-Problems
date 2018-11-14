@@ -1,4 +1,4 @@
-import autosklearn.regression as acs
+import autosklearn.regression as asc
 import sklearn as sk
 import pandas as pd
 import requests, zipfile
@@ -68,3 +68,33 @@ def make_cutoff_times(data):
         labels += label
 
     return new_labels(data, labels)
+
+def classify(features, targets, time, name):
+    X_train, X_test, y_train, y_test = \
+        sk.model_selection.train_test_split(features, targets)
+
+    classifier = asc.AutoSklearnRegressor(
+        time_left_for_this_task=time+10,
+        per_run_time_limit=time
+    )
+
+    classifier.fit(X_train.copy(), y_train.copy(), dataset_name='engines')
+
+    predictions = classifier.predict(X_test)
+
+    evs = sk.metrics.explained_variance_score(y_test, predictions)
+    mae = sk.metrics.mean_absolute_error(y_test, predictions)
+    mse = sk.metrics.mean_squared_error(y_test, predictions)
+    msle = sk.metrics.mean_squared_log_error(y_test, predictions)
+    mdae = sk.metrics.median_absolute_error(y_test, predictions)
+    r2 = sk.metrics.r2_score(y_test, predictions)
+
+    with open("results/" + name, 'a') as arch:
+        arch.write(classifier.show_models() + "\n\n\n")
+        arch.write('EVS,MAE,MSE,MSLE,MDAE,R2\n')
+        arch.write('{:.5f}'.format(evs) + ",")
+        arch.write('{:.5f}'.format(mae) + ",")
+        arch.write('{:.5f}'.format(mse) + ",")
+        arch.write('{:.5f}'.format(msle) + ",")
+        arch.write('{:.5f}'.format(mdae) + ",")
+        arch.write('{:.5f}'.format(r2) + "\n")

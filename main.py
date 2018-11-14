@@ -26,9 +26,11 @@ es = es.normalize_entity(base_entity_id='recordings',
 
 features_matrix, features_defs = ft.dfs(entityset=es,
                                         target_entity='engines',
-                                        agg_primitives=['sum', 'min', 'max', 'mode', 'mean'],
+                                        agg_primitives=['sum', 'min', 'max', 'mean'],
                                         cutoff_time=cutoff_times,
                                         verbose=True,
-                                        max_depth=3)
+                                        max_depth=2)
 
 targets = features_matrix.pop('RUL')
+
+ut.classify(features_matrix, targets, 60, 'predictions.txt')
