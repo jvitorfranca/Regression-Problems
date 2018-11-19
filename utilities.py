@@ -1,8 +1,10 @@
 import autosklearn.regression as asc
 import sklearn as sk
 import pandas as pd
+import numpy as np
 import requests, zipfile
 import os
+import pickle
 from random import randint
 
 
@@ -75,10 +77,13 @@ def classify(features, targets, time, name):
 
     classifier = asc.AutoSklearnRegressor(
         time_left_for_this_task=time+10,
-        per_run_time_limit=time
+        per_run_time_limit=time,
+        initial_configurations_via_metalearning=0
     )
 
     classifier.fit(X_train.copy(), y_train.copy(), dataset_name='engines')
+
+    pickle.dump(classifier, open('obj/' + name + '_obj.sav', 'wb'))
 
     predictions = classifier.predict(X_test)
 
@@ -88,13 +93,9 @@ def classify(features, targets, time, name):
     msle = sk.metrics.mean_squared_log_error(y_test, predictions)
     mdae = sk.metrics.median_absolute_error(y_test, predictions)
     r2 = sk.metrics.r2_score(y_test, predictions)
+    rmse = np.sqrt(sk.metrics.mean_squared_error(y_test, predictions))
 
     with open("results/" + name, 'a') as arch:
         arch.write(classifier.show_models() + "\n\n\n")
-        arch.write('EVS,MAE,MSE,MSLE,MDAE,R2\n')
-        arch.write('{:.5f}'.format(evs) + ",")
-        arch.write('{:.5f}'.format(mae) + ",")
-        arch.write('{:.5f}'.format(mse) + ",")
-        arch.write('{:.5f}'.format(msle) + ",")
-        arch.write('{:.5f}'.format(mdae) + ",")
-        arch.write('{:.5f}'.format(r2) + "\n")
+        arch.write("EVS\t\tMAE\t\tMSE\t\tMSLE\t\tMDAE\t\tR2\t\tRMSE\n")
+        arch.write("{:2f}\t{:2f}\t{:2f}\t{:2f}\t{:2f}\t{:2f}\t{:2f}\n".format(evs,mae,mse,msle,mdae,r2,rmse))

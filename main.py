@@ -7,4 +7,7 @@ features = pickle.load(open("obj/feature_model", 'rb'))
 
 targets = pickle.load(open("obj/targets_model", 'rb'))
 
-ut.classify(features, targets, 60, 'pred.txt')
+runs = 5
+
+for i in range(runs):
+    ut.classify(features, targets, 60*5, str(i + 1)+'pred')
