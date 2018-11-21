@@ -1,0 +1,21 @@
+[(0.760000, SimpleRegressionPipeline({'categorical_encoding:__choice__': 'one_hot_encoding', 'imputation:strategy': 'mean', 'preprocessor:__choice__': 'no_preprocessing', 'regressor:__choice__': 'random_forest', 'rescaling:__choice__': 'standardize', 'categorical_encoding:one_hot_encoding:use_minimum_fraction': 'True', 'regressor:random_forest:bootstrap': 'True', 'regressor:random_forest:criterion': 'mse', 'regressor:random_forest:max_depth': 'None', 'regressor:random_forest:max_features': 1.0, 'regressor:random_forest:max_leaf_nodes': 'None', 'regressor:random_forest:min_impurity_decrease': 0.0, 'regressor:random_forest:min_samples_leaf': 1, 'regressor:random_forest:min_samples_split': 2, 'regressor:random_forest:min_weight_fraction_leaf': 0.0, 'regressor:random_forest:n_estimators': 100, 'categorical_encoding:one_hot_encoding:minimum_fraction': 0.01},
+dataset_properties={
+  'task': 4,
+  'sparse': False,
+  'multilabel': False,
+  'multiclass': False,
+  'target_type': 'regression',
+  'signed': False})),
+(0.240000, SimpleRegressionPipeline({'categorical_encoding:__choice__': 'no_encoding', 'imputation:strategy': 'mean', 'preprocessor:__choice__': 'select_percentile_regression', 'regressor:__choice__': 'extra_trees', 'rescaling:__choice__': 'quantile_transformer', 'preprocessor:select_percentile_regression:percentile': 95.42878810813433, 'preprocessor:select_percentile_regression:score_func': 'mutual_info', 'regressor:extra_trees:bootstrap': 'False', 'regressor:extra_trees:criterion': 'mae', 'regressor:extra_trees:max_depth': 'None', 'regressor:extra_trees:max_features': 0.47219030197186007, 'regressor:extra_trees:max_leaf_nodes': 'None', 'regressor:extra_trees:min_impurity_decrease': 0.0, 'regressor:extra_trees:min_samples_leaf': 13, 'regressor:extra_trees:min_samples_split': 19, 'regressor:extra_trees:n_estimators': 100, 'rescaling:quantile_transformer:n_quantiles': 1041, 'rescaling:quantile_transformer:output_distribution': 'normal'},
+dataset_properties={
+  'task': 4,
+  'sparse': False,
+  'multilabel': False,
+  'multiclass': False,
+  'target_type': 'regression',
+  'signed': False})),
+]
+
+
+EVS		MAE		MSE		MSLE		MDAE		R2		RMSE
+0.625062	41.455594	2967.413590	32.227600	0.619732	54.473972

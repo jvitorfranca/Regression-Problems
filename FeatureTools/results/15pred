@@ -1,0 +1,37 @@
+[(0.480000, SimpleRegressionPipeline({'categorical_encoding:__choice__': 'one_hot_encoding', 'imputation:strategy': 'mean', 'preprocessor:__choice__': 'no_preprocessing', 'regressor:__choice__': 'random_forest', 'rescaling:__choice__': 'standardize', 'categorical_encoding:one_hot_encoding:use_minimum_fraction': 'True', 'regressor:random_forest:bootstrap': 'True', 'regressor:random_forest:criterion': 'mse', 'regressor:random_forest:max_depth': 'None', 'regressor:random_forest:max_features': 1.0, 'regressor:random_forest:max_leaf_nodes': 'None', 'regressor:random_forest:min_impurity_decrease': 0.0, 'regressor:random_forest:min_samples_leaf': 1, 'regressor:random_forest:min_samples_split': 2, 'regressor:random_forest:min_weight_fraction_leaf': 0.0, 'regressor:random_forest:n_estimators': 100, 'categorical_encoding:one_hot_encoding:minimum_fraction': 0.01},
+dataset_properties={
+  'task': 4,
+  'sparse': False,
+  'multilabel': False,
+  'multiclass': False,
+  'target_type': 'regression',
+  'signed': False})),
+(0.440000, SimpleRegressionPipeline({'categorical_encoding:__choice__': 'one_hot_encoding', 'imputation:strategy': 'median', 'preprocessor:__choice__': 'select_percentile_regression', 'regressor:__choice__': 'adaboost', 'rescaling:__choice__': 'quantile_transformer', 'categorical_encoding:one_hot_encoding:use_minimum_fraction': 'False', 'preprocessor:select_percentile_regression:percentile': 73.31159718033382, 'preprocessor:select_percentile_regression:score_func': 'mutual_info', 'regressor:adaboost:learning_rate': 0.06028274521094612, 'regressor:adaboost:loss': 'exponential', 'regressor:adaboost:max_depth': 6, 'regressor:adaboost:n_estimators': 382, 'rescaling:quantile_transformer:n_quantiles': 197, 'rescaling:quantile_transformer:output_distribution': 'uniform'},
+dataset_properties={
+  'task': 4,
+  'sparse': False,
+  'multilabel': False,
+  'multiclass': False,
+  'target_type': 'regression',
+  'signed': False})),
+(0.060000, SimpleRegressionPipeline({'categorical_encoding:__choice__': 'one_hot_encoding', 'imputation:strategy': 'mean', 'preprocessor:__choice__': 'kitchen_sinks', 'regressor:__choice__': 'ard_regression', 'rescaling:__choice__': 'minmax', 'categorical_encoding:one_hot_encoding:use_minimum_fraction': 'False', 'preprocessor:kitchen_sinks:gamma': 0.09846319665742992, 'preprocessor:kitchen_sinks:n_components': 234, 'regressor:ard_regression:alpha_1': 0.0009457955114851383, 'regressor:ard_regression:alpha_2': 1.2997284570895578e-08, 'regressor:ard_regression:fit_intercept': 'True', 'regressor:ard_regression:lambda_1': 5.3891252303634695e-06, 'regressor:ard_regression:lambda_2': 0.000396487365164955, 'regressor:ard_regression:n_iter': 300, 'regressor:ard_regression:threshold_lambda': 70287.35371451348, 'regressor:ard_regression:tol': 0.003494896674565703},
+dataset_properties={
+  'task': 4,
+  'sparse': False,
+  'multilabel': False,
+  'multiclass': False,
+  'target_type': 'regression',
+  'signed': False})),
+(0.020000, SimpleRegressionPipeline({'categorical_encoding:__choice__': 'no_encoding', 'imputation:strategy': 'most_frequent', 'preprocessor:__choice__': 'pca', 'regressor:__choice__': 'adaboost', 'rescaling:__choice__': 'minmax', 'preprocessor:pca:keep_variance': 0.9021106725246424, 'preprocessor:pca:whiten': 'False', 'regressor:adaboost:learning_rate': 1.0487810146087861, 'regressor:adaboost:loss': 'square', 'regressor:adaboost:max_depth': 9, 'regressor:adaboost:n_estimators': 480},
+dataset_properties={
+  'task': 4,
+  'sparse': False,
+  'multilabel': False,
+  'multiclass': False,
+  'target_type': 'regression',
+  'signed': False})),
+]
+
+
+EVS		MAE		MSE		MSLE		MDAE		R2		RMSE
+0.661236	39.416205	2748.381681	27.320099	0.621083	52.425010

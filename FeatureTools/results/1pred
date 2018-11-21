@@ -1,0 +1,45 @@
+[(0.660000, SimpleRegressionPipeline({'categorical_encoding:__choice__': 'one_hot_encoding', 'imputation:strategy': 'mean', 'preprocessor:__choice__': 'no_preprocessing', 'regressor:__choice__': 'random_forest', 'rescaling:__choice__': 'standardize', 'categorical_encoding:one_hot_encoding:use_minimum_fraction': 'True', 'regressor:random_forest:bootstrap': 'True', 'regressor:random_forest:criterion': 'mse', 'regressor:random_forest:max_depth': 'None', 'regressor:random_forest:max_features': 1.0, 'regressor:random_forest:max_leaf_nodes': 'None', 'regressor:random_forest:min_impurity_decrease': 0.0, 'regressor:random_forest:min_samples_leaf': 1, 'regressor:random_forest:min_samples_split': 2, 'regressor:random_forest:min_weight_fraction_leaf': 0.0, 'regressor:random_forest:n_estimators': 100, 'categorical_encoding:one_hot_encoding:minimum_fraction': 0.01},
+dataset_properties={
+  'task': 4,
+  'sparse': False,
+  'multilabel': False,
+  'multiclass': False,
+  'target_type': 'regression',
+  'signed': False})),
+(0.160000, SimpleRegressionPipeline({'categorical_encoding:__choice__': 'one_hot_encoding', 'imputation:strategy': 'most_frequent', 'preprocessor:__choice__': 'feature_agglomeration', 'regressor:__choice__': 'libsvm_svr', 'rescaling:__choice__': 'quantile_transformer', 'categorical_encoding:one_hot_encoding:use_minimum_fraction': 'False', 'preprocessor:feature_agglomeration:affinity': 'euclidean', 'preprocessor:feature_agglomeration:linkage': 'ward', 'preprocessor:feature_agglomeration:n_clusters': 127, 'preprocessor:feature_agglomeration:pooling_func': 'max', 'regressor:libsvm_svr:C': 1537.5764592089047, 'regressor:libsvm_svr:epsilon': 0.3545769861728059, 'regressor:libsvm_svr:kernel': 'poly', 'regressor:libsvm_svr:max_iter': -1, 'regressor:libsvm_svr:shrinking': 'True', 'regressor:libsvm_svr:tol': 1.8408718953928466e-05, 'rescaling:quantile_transformer:n_quantiles': 1797, 'rescaling:quantile_transformer:output_distribution': 'normal', 'regressor:libsvm_svr:coef0': 0.22944427262990308, 'regressor:libsvm_svr:degree': 5, 'regressor:libsvm_svr:gamma': 0.0002552508524290894},
+dataset_properties={
+  'task': 4,
+  'sparse': False,
+  'multilabel': False,
+  'multiclass': False,
+  'target_type': 'regression',
+  'signed': False})),
+(0.140000, SimpleRegressionPipeline({'categorical_encoding:__choice__': 'no_encoding', 'imputation:strategy': 'median', 'preprocessor:__choice__': 'select_percentile_regression', 'regressor:__choice__': 'extra_trees', 'rescaling:__choice__': 'minmax', 'preprocessor:select_percentile_regression:percentile': 36.79661670157415, 'preprocessor:select_percentile_regression:score_func': 'f_regression', 'regressor:extra_trees:bootstrap': 'False', 'regressor:extra_trees:criterion': 'mse', 'regressor:extra_trees:max_depth': 'None', 'regressor:extra_trees:max_features': 0.480871739168657, 'regressor:extra_trees:max_leaf_nodes': 'None', 'regressor:extra_trees:min_impurity_decrease': 0.0, 'regressor:extra_trees:min_samples_leaf': 15, 'regressor:extra_trees:min_samples_split': 7, 'regressor:extra_trees:n_estimators': 100},
+dataset_properties={
+  'task': 4,
+  'sparse': False,
+  'multilabel': False,
+  'multiclass': False,
+  'target_type': 'regression',
+  'signed': False})),
+(0.020000, SimpleRegressionPipeline({'categorical_encoding:__choice__': 'no_encoding', 'imputation:strategy': 'mean', 'preprocessor:__choice__': 'pca', 'regressor:__choice__': 'random_forest', 'rescaling:__choice__': 'quantile_transformer', 'preprocessor:pca:keep_variance': 0.9119699162356076, 'preprocessor:pca:whiten': 'False', 'regressor:random_forest:bootstrap': 'True', 'regressor:random_forest:criterion': 'friedman_mse', 'regressor:random_forest:max_depth': 'None', 'regressor:random_forest:max_features': 0.49785847710424214, 'regressor:random_forest:max_leaf_nodes': 'None', 'regressor:random_forest:min_impurity_decrease': 0.0, 'regressor:random_forest:min_samples_leaf': 20, 'regressor:random_forest:min_samples_split': 18, 'regressor:random_forest:min_weight_fraction_leaf': 0.0, 'regressor:random_forest:n_estimators': 100, 'rescaling:quantile_transformer:n_quantiles': 159, 'rescaling:quantile_transformer:output_distribution': 'uniform'},
+dataset_properties={
+  'task': 4,
+  'sparse': False,
+  'multilabel': False,
+  'multiclass': False,
+  'target_type': 'regression',
+  'signed': False})),
+(0.020000, SimpleRegressionPipeline({'categorical_encoding:__choice__': 'no_encoding', 'imputation:strategy': 'most_frequent', 'preprocessor:__choice__': 'pca', 'regressor:__choice__': 'adaboost', 'rescaling:__choice__': 'minmax', 'preprocessor:pca:keep_variance': 0.9021106725246424, 'preprocessor:pca:whiten': 'False', 'regressor:adaboost:learning_rate': 1.0487810146087861, 'regressor:adaboost:loss': 'square', 'regressor:adaboost:max_depth': 9, 'regressor:adaboost:n_estimators': 480},
+dataset_properties={
+  'task': 4,
+  'sparse': False,
+  'multilabel': False,
+  'multiclass': False,
+  'target_type': 'regression',
+  'signed': False})),
+]
+
+
+EVS		MAE		MSE		MSLE		MDAE		R2		RMSE
+0.702231	34.729291	1892.897316	27.314987	0.673697	43.507440
