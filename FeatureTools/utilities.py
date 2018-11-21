@@ -94,7 +94,7 @@ def classify(features, targets, time, name):
     evs = sk.metrics.explained_variance_score(y_test, predictions)
     mae = sk.metrics.mean_absolute_error(y_test, predictions)
     mse = sk.metrics.mean_squared_error(y_test, predictions)
-    # msle = sk.metrics.mean_squared_log_error(y_test, predictions)
+    msle = sk.metrics.mean_squared_log_error(y_test, predictions)
     mdae = sk.metrics.median_absolute_error(y_test, predictions)
     r2 = sk.metrics.r2_score(y_test, predictions)
     rmse = np.sqrt(sk.metrics.mean_squared_error(y_test, predictions))
@@ -102,4 +102,4 @@ def classify(features, targets, time, name):
     with open("results/" + name, 'a') as arch:
         arch.write(classifier.show_models() + "\n\n\n")
         arch.write("EVS\t\tMAE\t\tMSE\t\tMSLE\t\tMDAE\t\tR2\t\tRMSE\n")
-        arch.write("{:2f}\t{:2f}\t{:2f}\t{:2f}\t{:2f}\t{:2f}\n".format(evs,mae,mse,mdae,r2,rmse))
+        arch.write("{:2f}\t{:2f}\t{:2f}\t{:2f}\t{:2f}\t{:2f}\t{:2f}\n".format(evs,mae,mse,msle,mdae,r2,rmse))

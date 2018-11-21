@@ -1,5 +1,8 @@
+import autosklearn.regression as asc
+import sklearn as sk
 import pandas as pd
 import numpy as np
+import pickle
 
 def prune_data(data_path):
 
@@ -26,7 +29,36 @@ def prune_data(data_path):
 
     print(data.head())
 
-    # data.to_csv("data/new_data.csv")
+    data.to_csv("data/new_data.csv")
+
+def classify(features, targets, time, name):
+
+    X_train, X_test, y_train, y_test = \
+        sk.model_selection.train_test_split(features, targets)
+
+    classifier = asc.AutoSklearnRegressor(
+        time_left_for_this_task=time+10,
+        per_run_time_limit=time,
+        initial_configurations_via_metalearning=0
+    )
+
+    classifier.fit(X_train.copy(), y_train.copy(), dataset_name='engines')
+
+    pickle.dump(classifier, open('obj/' + name + '_obj.sav', 'wb'))
+
+    predictions = classifier.predict(X_test)
+
+    evs = sk.metrics.explained_variance_score(y_test, predictions)
+    mae = sk.metrics.mean_absolute_error(y_test, predictions)
+    mse = sk.metrics.mean_squared_error(y_test, predictions)
+    mdae = sk.metrics.median_absolute_error(y_test, predictions)
+    r2 = sk.metrics.r2_score(y_test, predictions)
+    rmse = np.sqrt(sk.metrics.mean_squared_error(y_test, predictions))
+
+    with open("results/" + name, 'a') as arch:
+        arch.write(classifier.show_models() + "\n\n\n")
+        arch.write("EVS\t\tMAE\t\tMSE\t\tMDAE\t\tR2\t\tRMSE\n")
+        arch.write("{:2f}\t{:2f}\t{:2f}\t{:2f}\t{:2f}\t{:2f}\n".format(evs,mae,mse,mdae,r2,rmse))
 
 if __name__ == "__main__":
 
