@@ -12,4 +12,8 @@ target = data['12:Precipitacion']
 
 if __name__ == "__main__":
 
-    ut.classify(features, target, 60, str(1)+'pred')
+    runs = 5
+
+    for i in range(0, runs):
+
+        ut.classify(features, target, 60*5, str(i + 1)+'pred')

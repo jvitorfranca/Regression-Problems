@@ -31,18 +31,28 @@ def prune_data(data_path):
 
     data.to_csv("data/new_data.csv")
 
+def mean_absolute_percentage_error(y_true, y_pred):
+
+    y_true, y_pred = np.array(y_true), np.array(y_pred)
+
+    return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
+
 def classify(features, targets, time, name):
 
     X_train, X_test, y_train, y_test = \
-        sk.model_selection.train_test_split(features, targets)
+        sk.model_selection.train_test_split(features, targets, shuffle=False)
 
     classifier = asc.AutoSklearnRegressor(
         time_left_for_this_task=time+10,
         per_run_time_limit=time,
-        initial_configurations_via_metalearning=0
+        initial_configurations_via_metalearning=0,
+        resampling_strategy='cv',
+        resampling_strategy_arguments={'folds': 5},
     )
 
     classifier.fit(X_train.copy(), y_train.copy(), dataset_name='engines')
+
+    classifier.refit(X_train.copy(), y_train.copy())
 
     pickle.dump(classifier, open('obj/' + name + '_obj.sav', 'wb'))
 
